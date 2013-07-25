@@ -1,0 +1,799 @@
+##Assign 1 internal disk per server
+##Break disk into 5gig OS volume and remaining for HDFS
+
+#First create pool
+storage create pool 0/SSD-0 disk 0/0
+storage create pool 0/SSD-1 disk 0/1
+storage create pool 0/SSD-2 disk 0/2
+storage create pool 0/SSD-3 disk 0/3
+storage create pool 0/SSD-4 disk 0/4
+storage create pool 0/SSD-5 disk 0/5
+storage create pool 0/SSD-6 disk 0/6
+storage create pool 0/SSD-7 disk 0/7
+
+storage create pool 1/SSD-0 disk 1/0
+storage create pool 1/SSD-1 disk 1/1
+storage create pool 1/SSD-2 disk 1/2
+storage create pool 1/SSD-3 disk 1/3
+storage create pool 1/SSD-4 disk 1/4
+storage create pool 1/SSD-5 disk 1/5
+storage create pool 1/SSD-6 disk 1/6
+storage create pool 1/SSD-7 disk 1/7
+
+storage create pool 2/SSD-0 disk 2/0
+storage create pool 2/SSD-1 disk 2/1
+storage create pool 2/SSD-2 disk 2/2
+storage create pool 2/SSD-3 disk 2/3
+storage create pool 2/SSD-4 disk 2/4
+storage create pool 2/SSD-5 disk 2/5
+storage create pool 2/SSD-6 disk 2/6
+storage create pool 2/SSD-7 disk 2/7
+
+storage create pool 3/SSD-0 disk 3/0
+storage create pool 3/SSD-1 disk 3/1
+storage create pool 3/SSD-2 disk 3/2
+storage create pool 3/SSD-3 disk 3/3
+storage create pool 3/SSD-4 disk 3/4
+storage create pool 3/SSD-5 disk 3/5
+storage create pool 3/SSD-6 disk 3/6
+storage create pool 3/SSD-7 disk 3/7
+
+storage create pool 4/SSD-0 disk 4/0
+storage create pool 4/SSD-1 disk 4/1
+storage create pool 4/SSD-2 disk 4/2
+storage create pool 4/SSD-3 disk 4/3
+storage create pool 4/SSD-4 disk 4/4
+storage create pool 4/SSD-5 disk 4/5
+storage create pool 4/SSD-6 disk 4/6
+storage create pool 4/SSD-7 disk 4/7
+
+storage create pool 5/SSD-0 disk 5/0
+storage create pool 5/SSD-1 disk 5/1
+storage create pool 5/SSD-2 disk 5/2
+storage create pool 5/SSD-3 disk 5/3
+storage create pool 5/SSD-4 disk 5/4
+storage create pool 5/SSD-5 disk 5/5
+storage create pool 5/SSD-6 disk 5/6
+storage create pool 5/SSD-7 disk 5/7
+
+storage create pool 6/SSD-0 disk 6/0
+storage create pool 6/SSD-1 disk 6/1
+storage create pool 6/SSD-2 disk 6/2
+storage create pool 6/SSD-3 disk 6/3
+storage create pool 6/SSD-4 disk 6/4
+storage create pool 6/SSD-5 disk 6/5
+storage create pool 6/SSD-6 disk 6/6
+storage create pool 6/SSD-7 disk 6/7
+
+storage create pool 7/SSD-0 disk 7/0
+storage create pool 7/SSD-1 disk 7/1
+storage create pool 7/SSD-2 disk 7/2
+storage create pool 7/SSD-3 disk 7/3
+storage create pool 7/SSD-4 disk 7/4
+storage create pool 7/SSD-5 disk 7/5
+storage create pool 7/SSD-6 disk 7/6
+storage create pool 7/SSD-7 disk 7/7
+
+#Create 5gig OS Volume
+storage create volume 0/SSD-0/OS size 5
+storage create volume 0/SSD-1/OS size 5
+storage create volume 0/SSD-2/OS size 5
+storage create volume 0/SSD-3/OS size 5
+storage create volume 0/SSD-4/OS size 5
+storage create volume 0/SSD-5/OS size 5
+storage create volume 0/SSD-6/OS size 5
+storage create volume 0/SSD-7/OS size 5
+
+storage create volume 1/SSD-0/OS size 
+storage create volume 1/SSD-1/OS size 5
+storage create volume 1/SSD-2/OS size 5
+storage create volume 1/SSD-3/OS size 5
+storage create volume 1/SSD-4/OS size 5
+storage create volume 1/SSD-5/OS size 5
+storage create volume 1/SSD-6/OS size 5
+storage create volume 1/SSD-7/OS size 5
+
+storage create volume 2/SSD-0/OS size 5
+storage create volume 2/SSD-1/OS size 5
+storage create volume 2/SSD-2/OS size 5
+storage create volume 2/SSD-3/OS size 5
+storage create volume 2/SSD-4/OS size 5
+storage create volume 2/SSD-5/OS size 5
+storage create volume 2/SSD-6/OS size 5
+storage create volume 2/SSD-7/OS size 5
+
+storage create volume 3/SSD-0/OS size 5
+storage create volume 3/SSD-1/OS size 5
+storage create volume 3/SSD-2/OS size 5
+storage create volume 3/SSD-3/OS size 5
+storage create volume 3/SSD-4/OS size 5
+storage create volume 3/SSD-5/OS size 5
+storage create volume 3/SSD-6/OS size 5
+storage create volume 3/SSD-7/OS size 5
+
+storage create volume 4/SSD-0/OS size 5
+storage create volume 4/SSD-1/OS size 5
+storage create volume 4/SSD-2/OS size 5
+storage create volume 4/SSD-3/OS size 5
+storage create volume 4/SSD-4/OS size 5
+storage create volume 4/SSD-5/OS size 5
+storage create volume 4/SSD-6/OS size 5
+storage create volume 4/SSD-7/OS size 5
+
+storage create volume 5/SSD-0/OS size 5
+storage create volume 5/SSD-1/OS size 5
+storage create volume 5/SSD-2/OS size 5
+storage create volume 5/SSD-3/OS size 5
+storage create volume 5/SSD-4/OS size 5
+storage create volume 5/SSD-5/OS size 5
+storage create volume 5/SSD-6/OS size 5
+storage create volume 5/SSD-7/OS size 5
+
+storage create volume 6/SSD-0/OS size 5
+storage create volume 6/SSD-1/OS size 5
+storage create volume 6/SSD-2/OS size 5
+storage create volume 6/SSD-3/OS size 5
+storage create volume 6/SSD-4/OS size 5
+storage create volume 6/SSD-5/OS size 5
+storage create volume 6/SSD-6/OS size 5
+storage create volume 6/SSD-7/OS size 5
+
+storage create volume 7/SSD-0/OS size 5
+storage create volume 7/SSD-1/OS size 5
+storage create volume 7/SSD-2/OS size 5
+storage create volume 7/SSD-3/OS size 5
+storage create volume 7/SSD-4/OS size 5
+storage create volume 7/SSD-5/OS size 5
+storage create volume 7/SSD-6/OS size 5
+storage create volume 7/SSD-7/OS size 5
+
+#Create remaining DATA Volume
+storage create volume 0/SSD-0/DATA size max
+storage create volume 0/SSD-1/DATA size max
+storage create volume 0/SSD-2/DATA size max
+storage create volume 0/SSD-3/DATA size max
+storage create volume 0/SSD-4/DATA size max
+storage create volume 0/SSD-5/DATA size max
+storage create volume 0/SSD-6/DATA size max
+storage create volume 0/SSD-7/DATA size max
+
+storage create volume 1/SSD-0/DATA size max
+storage create volume 1/SSD-1/DATA size max
+storage create volume 1/SSD-2/DATA size max
+storage create volume 1/SSD-3/DATA size max
+storage create volume 1/SSD-4/DATA size max
+storage create volume 1/SSD-5/DATA size max
+storage create volume 1/SSD-6/DATA size max
+storage create volume 1/SSD-7/DATA size max
+
+storage create volume 2/SSD-0/DATA size max
+storage create volume 2/SSD-1/DATA size max
+storage create volume 2/SSD-2/DATA size max
+storage create volume 2/SSD-3/DATA size max
+storage create volume 2/SSD-4/DATA size max
+storage create volume 2/SSD-5/DATA size max
+storage create volume 2/SSD-6/DATA size max
+storage create volume 2/SSD-7/DATA size max
+
+storage create volume 3/SSD-0/DATA size max
+storage create volume 3/SSD-1/DATA size max
+storage create volume 3/SSD-2/DATA size max
+storage create volume 3/SSD-3/DATA size max
+storage create volume 3/SSD-4/DATA size max
+storage create volume 3/SSD-5/DATA size max
+storage create volume 3/SSD-6/DATA size max
+storage create volume 3/SSD-7/DATA size max
+
+storage create volume 4/SSD-0/DATA size max
+storage create volume 4/SSD-1/DATA size max
+storage create volume 4/SSD-2/DATA size max
+storage create volume 4/SSD-3/DATA size max
+storage create volume 4/SSD-4/DATA size max
+storage create volume 4/SSD-5/DATA size max
+storage create volume 4/SSD-6/DATA size max
+storage create volume 4/SSD-7/DATA size max
+
+storage create volume 5/SSD-0/DATA size max
+storage create volume 5/SSD-1/DATA size max
+storage create volume 5/SSD-2/DATA size max
+storage create volume 5/SSD-3/DATA size max
+storage create volume 5/SSD-4/DATA size max
+storage create volume 5/SSD-5/DATA size max
+storage create volume 5/SSD-6/DATA size max
+storage create volume 5/SSD-7/DATA size max
+
+storage create volume 6/SSD-0/DATA size max
+storage create volume 6/SSD-1/DATA size max
+storage create volume 6/SSD-2/DATA size max
+storage create volume 6/SSD-3/DATA size max
+storage create volume 6/SSD-4/DATA size max
+storage create volume 6/SSD-5/DATA size max
+storage create volume 6/SSD-6/DATA size max
+storage create volume 6/SSD-7/DATA size max
+
+storage create volume 7/SSD-0/DATA size max
+storage create volume 7/SSD-1/DATA size max
+storage create volume 7/SSD-2/DATA size max
+storage create volume 7/SSD-3/DATA size max
+storage create volume 7/SSD-4/DATA size max
+storage create volume 7/SSD-5/DATA size max
+storage create volume 7/SSD-6/DATA size max
+storage create volume 7/SSD-7/DATA size max
+
+#Assign by zplane
+config t
+storage assign 0/0 0 volume 0/SSD-0/OS
+storage assign 0/0 1 volume 0/SSD-0/DATA
+storage assign 0/0 2 volume 0/SSD-0/DATA
+storage assign 0/0 3 volume 0/SSD-0/DATA
+storage assign 0/0 4 volume 0/SSD-0/DATA
+storage assign 0/0 5 volume 0/SSD-0/DATA
+storage assign 0/0 6 volume 0/SSD-0/DATA
+storage assign 0/0 7 volume 0/SSD-0/DATA
+
+storage assign 1/0 0 volume 0/SSD-1/OS
+storage assign 1/0 1 volume 0/SSD-1/DATA
+storage assign 1/0 2 volume 0/SSD-1/DATA
+storage assign 1/0 3 volume 0/SSD-1/DATA
+storage assign 1/0 4 volume 0/SSD-1/DATA
+storage assign 1/0 5 volume 0/SSD-1/DATA
+storage assign 1/0 6 volume 0/SSD-1/DATA
+storage assign 1/0 7 volume 0/SSD-1/DATA
+
+storage assign 2/0 0 volume 1/SSD-0/OS
+storage assign 2/0 1 volume 1/SSD-0/DATA
+storage assign 2/0 2 volume 1/SSD-0/DATA
+storage assign 2/0 3 volume 1/SSD-0/DATA
+storage assign 2/0 4 volume 1/SSD-0/DATA
+storage assign 2/0 5 volume 1/SSD-0/DATA
+storage assign 2/0 6 volume 1/SSD-0/DATA
+storage assign 2/0 7 volume 1/SSD-0/DATA
+
+storage assign 3/0 0 volume 1/SSD-1/OS
+storage assign 3/0 1 volume 1/SSD-1/DATA
+storage assign 3/0 2 volume 1/SSD-1/DATA
+storage assign 3/0 3 volume 1/SSD-1/DATA
+storage assign 3/0 4 volume 1/SSD-1/DATA
+storage assign 3/0 5 volume 1/SSD-1/DATA
+storage assign 3/0 6 volume 1/SSD-1/DATA
+storage assign 3/0 7 volume 1/SSD-1/DATA
+
+storage assign 4/0 0 volume 2/SSD-0/OS
+storage assign 4/0 1 volume 2/SSD-0/DATA
+storage assign 4/0 2 volume 2/SSD-0/DATA
+storage assign 4/0 3 volume 2/SSD-0/DATA
+storage assign 4/0 4 volume 2/SSD-0/DATA
+storage assign 4/0 5 volume 2/SSD-0/DATA
+storage assign 4/0 6 volume 2/SSD-0/DATA
+storage assign 4/0 7 volume 2/SSD-0/DATA
+
+storage assign 5/0 0 volume 2/SSD-1/OS
+storage assign 5/0 1 volume 2/SSD-1/DATA
+storage assign 5/0 2 volume 2/SSD-1/DATA
+storage assign 5/0 3 volume 2/SSD-1/DATA
+storage assign 5/0 4 volume 2/SSD-1/DATA
+storage assign 5/0 5 volume 2/SSD-1/DATA
+storage assign 5/0 6 volume 2/SSD-1/DATA
+storage assign 5/0 7 volume 2/SSD-1/DATA
+
+storage assign 6/0 0 volume 3/SSD-0/OS
+storage assign 6/0 1 volume 3/SSD-0/DATA
+storage assign 6/0 2 volume 3/SSD-0/DATA
+storage assign 6/0 3 volume 3/SSD-0/DATA
+storage assign 6/0 4 volume 3/SSD-0/DATA
+storage assign 6/0 5 volume 3/SSD-0/DATA
+storage assign 6/0 6 volume 3/SSD-0/DATA
+storage assign 6/0 7 volume 3/SSD-0/DATA
+
+storage assign 7/0 0 volume 3/SSD-1/OS
+storage assign 7/0 1 volume 3/SSD-1/DATA
+storage assign 7/0 2 volume 3/SSD-1/DATA
+storage assign 7/0 3 volume 3/SSD-1/DATA
+storage assign 7/0 4 volume 3/SSD-1/DATA
+storage assign 7/0 5 volume 3/SSD-1/DATA
+storage assign 7/0 6 volume 3/SSD-1/DATA
+storage assign 7/0 7 volume 3/SSD-1/DATA
+
+storage assign 8/0 0 volume 4/SSD-0/OS
+storage assign 8/0 1 volume 4/SSD-0/DATA
+storage assign 8/0 2 volume 4/SSD-0/DATA
+storage assign 8/0 3 volume 4/SSD-0/DATA
+storage assign 8/0 4 volume 4/SSD-0/DATA
+storage assign 8/0 5 volume 4/SSD-0/DATA
+storage assign 8/0 6 volume 4/SSD-0/DATA
+storage assign 8/0 7 volume 4/SSD-0/DATA
+
+storage assign 9/0 0 volume 4/SSD-1/OS
+storage assign 9/0 1 volume 4/SSD-1/DATA
+storage assign 9/0 2 volume 4/SSD-1/DATA
+storage assign 9/0 3 volume 4/SSD-1/DATA
+storage assign 9/0 4 volume 4/SSD-1/DATA
+storage assign 9/0 5 volume 4/SSD-1/DATA
+storage assign 9/0 6 volume 4/SSD-1/DATA
+storage assign 9/0 7 volume 4/SSD-1/DATA
+
+storage assign 10/0 0 volume 5/SSD-0/OS
+storage assign 10/0 1 volume 5/SSD-0/DATA
+storage assign 10/0 2 volume 5/SSD-0/DATA
+storage assign 10/0 3 volume 5/SSD-0/DATA
+storage assign 10/0 4 volume 5/SSD-0/DATA
+storage assign 10/0 5 volume 5/SSD-0/DATA
+storage assign 10/0 6 volume 5/SSD-0/DATA
+storage assign 10/0 7 volume 5/SSD-0/DATA
+
+storage assign 11/0 0 volume 5/SSD-1/OS
+storage assign 11/0 1 volume 5/SSD-1/DATA
+storage assign 11/0 2 volume 5/SSD-1/DATA
+storage assign 11/0 3 volume 5/SSD-1/DATA
+storage assign 11/0 4 volume 5/SSD-1/DATA
+storage assign 11/0 5 volume 5/SSD-1/DATA
+storage assign 11/0 6 volume 5/SSD-1/DATA
+storage assign 11/0 7 volume 5/SSD-1/DATA
+
+storage assign 12/0 0 volume 6/SSD-0/OS
+storage assign 12/0 1 volume 6/SSD-0/DATA
+storage assign 12/0 2 volume 6/SSD-0/DATA
+storage assign 12/0 3 volume 6/SSD-0/DATA
+storage assign 12/0 4 volume 6/SSD-0/DATA
+storage assign 12/0 5 volume 6/SSD-0/DATA
+storage assign 12/0 6 volume 6/SSD-0/DATA
+storage assign 12/0 7 volume 6/SSD-0/DATA
+
+storage assign 13/0 0 volume 6/SSD-1/OS
+storage assign 13/0 1 volume 6/SSD-1/DATA
+storage assign 13/0 2 volume 6/SSD-1/DATA
+storage assign 13/0 3 volume 6/SSD-1/DATA
+storage assign 13/0 4 volume 6/SSD-1/DATA
+storage assign 13/0 5 volume 6/SSD-1/DATA
+storage assign 13/0 6 volume 6/SSD-1/DATA
+storage assign 13/0 7 volume 6/SSD-1/DATA
+
+storage assign 14/0 0 volume 7/SSD-0/OS
+storage assign 14/0 1 volume 7/SSD-0/DATA
+storage assign 14/0 2 volume 7/SSD-0/DATA
+storage assign 14/0 3 volume 7/SSD-0/DATA
+storage assign 14/0 4 volume 7/SSD-0/DATA
+storage assign 14/0 5 volume 7/SSD-0/DATA
+storage assign 14/0 6 volume 7/SSD-0/DATA
+storage assign 14/0 7 volume 7/SSD-0/DATA
+
+storage assign 15/0 0 volume 7/SSD-1/OS
+storage assign 15/0 1 volume 7/SSD-1/DATA
+storage assign 15/0 2 volume 7/SSD-1/DATA
+storage assign 15/0 3 volume 7/SSD-1/DATA
+storage assign 15/0 4 volume 7/SSD-1/DATA
+storage assign 15/0 5 volume 7/SSD-1/DATA
+storage assign 15/0 6 volume 7/SSD-1/DATA
+storage assign 15/0 7 volume 7/SSD-1/DATA
+
+storage assign 16/0 0 volume 0/SSD-2/OS
+storage assign 16/0 1 volume 0/SSD-2/DATA
+storage assign 16/0 2 volume 0/SSD-2/DATA
+storage assign 16/0 3 volume 0/SSD-2/DATA
+storage assign 16/0 4 volume 0/SSD-2/DATA
+storage assign 16/0 5 volume 0/SSD-2/DATA
+storage assign 16/0 6 volume 0/SSD-2/DATA
+storage assign 16/0 7 volume 0/SSD-2/DATA
+
+storage assign 17/0 0 volume 0/SSD-3/OS
+storage assign 17/0 1 volume 0/SSD-3/DATA
+storage assign 17/0 2 volume 0/SSD-3/DATA
+storage assign 17/0 3 volume 0/SSD-3/DATA
+storage assign 17/0 4 volume 0/SSD-3/DATA
+storage assign 17/0 5 volume 0/SSD-3/DATA
+storage assign 17/0 6 volume 0/SSD-3/DATA
+storage assign 17/0 7 volume 0/SSD-3/DATA
+
+storage assign 18/0 0 volume 1/SSD-2/OS
+storage assign 18/0 1 volume 1/SSD-2/DATA
+storage assign 18/0 2 volume 1/SSD-2/DATA
+storage assign 18/0 3 volume 1/SSD-2/DATA
+storage assign 18/0 4 volume 1/SSD-2/DATA
+storage assign 18/0 5 volume 1/SSD-2/DATA
+storage assign 18/0 6 volume 1/SSD-2/DATA
+storage assign 18/0 7 volume 1/SSD-2/DATA
+
+storage assign 19/0 0 volume 1/SSD-3/OS
+storage assign 19/0 1 volume 1/SSD-3/DATA
+storage assign 19/0 2 volume 1/SSD-3/DATA
+storage assign 19/0 3 volume 1/SSD-3/DATA
+storage assign 19/0 4 volume 1/SSD-3/DATA
+storage assign 19/0 5 volume 1/SSD-3/DATA
+storage assign 19/0 6 volume 1/SSD-3/DATA
+storage assign 19/0 7 volume 1/SSD-3/DATA
+
+storage assign 20/0 0 volume 2/SSD-2/OS
+storage assign 20/0 1 volume 2/SSD-2/DATA
+storage assign 20/0 2 volume 2/SSD-2/DATA
+storage assign 20/0 3 volume 2/SSD-2/DATA
+storage assign 20/0 4 volume 2/SSD-2/DATA
+storage assign 20/0 5 volume 2/SSD-2/DATA
+storage assign 20/0 6 volume 2/SSD-2/DATA
+storage assign 20/0 7 volume 2/SSD-2/DATA
+
+storage assign 21/0 0 volume 2/SSD-3/OS
+storage assign 21/0 1 volume 2/SSD-3/DATA
+storage assign 21/0 2 volume 2/SSD-3/DATA
+storage assign 21/0 3 volume 2/SSD-3/DATA
+storage assign 21/0 4 volume 2/SSD-3/DATA
+storage assign 21/0 5 volume 2/SSD-3/DATA
+storage assign 21/0 6 volume 2/SSD-3/DATA
+storage assign 21/0 7 volume 2/SSD-3/DATA
+
+storage assign 22/0 0 volume 3/SSD-2/OS
+storage assign 22/0 1 volume 3/SSD-2/DATA
+storage assign 22/0 2 volume 3/SSD-2/DATA
+storage assign 22/0 3 volume 3/SSD-2/DATA
+storage assign 22/0 4 volume 3/SSD-2/DATA
+storage assign 22/0 5 volume 3/SSD-2/DATA
+storage assign 22/0 6 volume 3/SSD-2/DATA
+storage assign 22/0 7 volume 3/SSD-2/DATA
+
+storage assign 23/0 0 volume 3/SSD-3/OS
+storage assign 23/0 1 volume 3/SSD-3/DATA
+storage assign 23/0 2 volume 3/SSD-3/DATA
+storage assign 23/0 3 volume 3/SSD-3/DATA
+storage assign 23/0 4 volume 3/SSD-3/DATA
+storage assign 23/0 5 volume 3/SSD-3/DATA
+storage assign 23/0 6 volume 3/SSD-3/DATA
+storage assign 23/0 7 volume 3/SSD-3/DATA
+
+storage assign 24/0 0 volume 4/SSD-2/OS
+storage assign 24/0 1 volume 4/SSD-2/DATA
+storage assign 24/0 2 volume 4/SSD-2/DATA
+storage assign 24/0 3 volume 4/SSD-2/DATA
+storage assign 24/0 4 volume 4/SSD-2/DATA
+storage assign 24/0 5 volume 4/SSD-2/DATA
+storage assign 24/0 6 volume 4/SSD-2/DATA
+storage assign 24/0 7 volume 4/SSD-2/DATA
+
+storage assign 25/0 0 volume 4/SSD-3/OS
+storage assign 25/0 1 volume 4/SSD-3/DATA
+storage assign 25/0 2 volume 4/SSD-3/DATA
+storage assign 25/0 3 volume 4/SSD-3/DATA
+storage assign 25/0 4 volume 4/SSD-3/DATA
+storage assign 25/0 5 volume 4/SSD-3/DATA
+storage assign 25/0 6 volume 4/SSD-3/DATA
+storage assign 25/0 7 volume 4/SSD-3/DATA
+
+storage assign 26/0 0 volume 5/SSD-2/OS
+storage assign 26/0 1 volume 5/SSD-2/DATA
+storage assign 26/0 2 volume 5/SSD-2/DATA
+storage assign 26/0 3 volume 5/SSD-2/DATA
+storage assign 26/0 4 volume 5/SSD-2/DATA
+storage assign 26/0 5 volume 5/SSD-2/DATA
+storage assign 26/0 6 volume 5/SSD-2/DATA
+storage assign 26/0 7 volume 5/SSD-2/DATA
+
+storage assign 27/0 0 volume 5/SSD-3/OS
+storage assign 27/0 1 volume 5/SSD-3/DATA
+storage assign 27/0 2 volume 5/SSD-3/DATA
+storage assign 27/0 3 volume 5/SSD-3/DATA
+storage assign 27/0 4 volume 5/SSD-3/DATA
+storage assign 27/0 5 volume 5/SSD-3/DATA
+storage assign 27/0 6 volume 5/SSD-3/DATA
+storage assign 27/0 7 volume 5/SSD-3/DATA
+
+storage assign 28/0 0 volume 6/SSD-2/OS
+storage assign 28/0 1 volume 6/SSD-2/DATA
+storage assign 28/0 2 volume 6/SSD-2/DATA
+storage assign 28/0 3 volume 6/SSD-2/DATA
+storage assign 28/0 4 volume 6/SSD-2/DATA
+storage assign 28/0 5 volume 6/SSD-2/DATA
+storage assign 28/0 6 volume 6/SSD-2/DATA
+storage assign 28/0 7 volume 6/SSD-2/DATA
+
+storage assign 29/0 0 volume 6/SSD-3/OS
+storage assign 29/0 1 volume 6/SSD-3/DATA
+storage assign 29/0 2 volume 6/SSD-3/DATA
+storage assign 29/0 3 volume 6/SSD-3/DATA
+storage assign 29/0 4 volume 6/SSD-3/DATA
+storage assign 29/0 5 volume 6/SSD-3/DATA
+storage assign 29/0 6 volume 6/SSD-3/DATA
+storage assign 29/0 7 volume 6/SSD-3/DATA
+
+storage assign 30/0 0 volume 7/SSD-2/OS
+storage assign 30/0 1 volume 7/SSD-2/DATA
+storage assign 30/0 2 volume 7/SSD-2/DATA
+storage assign 30/0 3 volume 7/SSD-2/DATA
+storage assign 30/0 4 volume 7/SSD-2/DATA
+storage assign 30/0 5 volume 7/SSD-2/DATA
+storage assign 30/0 6 volume 7/SSD-2/DATA
+storage assign 30/0 7 volume 7/SSD-2/DATA
+
+storage assign 31/0 0 volume 7/SSD-3/OS
+storage assign 31/0 1 volume 7/SSD-3/DATA
+storage assign 31/0 2 volume 7/SSD-3/DATA
+storage assign 31/0 3 volume 7/SSD-3/DATA
+storage assign 31/0 4 volume 7/SSD-3/DATA
+storage assign 31/0 5 volume 7/SSD-3/DATA
+storage assign 31/0 6 volume 7/SSD-3/DATA
+storage assign 31/0 7 volume 7/SSD-3/DATA
+
+storage assign 32/0 0 volume 0/SSD-4/OS
+storage assign 32/0 1 volume 0/SSD-4/DATA
+storage assign 32/0 2 volume 0/SSD-4/DATA
+storage assign 32/0 3 volume 0/SSD-4/DATA
+storage assign 32/0 4 volume 0/SSD-4/DATA
+storage assign 32/0 5 volume 0/SSD-4/DATA
+storage assign 32/0 6 volume 0/SSD-4/DATA
+storage assign 32/0 7 volume 0/SSD-4/DATA
+
+storage assign 33/0 0 volume 0/SSD-5/OS
+storage assign 33/0 1 volume 0/SSD-5/DATA
+storage assign 33/0 2 volume 0/SSD-5/DATA
+storage assign 33/0 3 volume 0/SSD-5/DATA
+storage assign 33/0 4 volume 0/SSD-5/DATA
+storage assign 33/0 5 volume 0/SSD-5/DATA
+storage assign 33/0 6 volume 0/SSD-5/DATA
+storage assign 33/0 7 volume 0/SSD-5/DATA
+
+storage assign 34/0 0 volume 1/SSD-4/OS
+storage assign 34/0 1 volume 1/SSD-4/DATA
+storage assign 34/0 2 volume 1/SSD-4/DATA
+storage assign 34/0 3 volume 1/SSD-4/DATA
+storage assign 34/0 4 volume 1/SSD-4/DATA
+storage assign 34/0 5 volume 1/SSD-4/DATA
+storage assign 34/0 6 volume 1/SSD-4/DATA
+storage assign 34/0 7 volume 1/SSD-4/DATA
+
+storage assign 35/0 0 volume 1/SSD-5/OS
+storage assign 35/0 1 volume 1/SSD-5/DATA
+storage assign 35/0 2 volume 1/SSD-5/DATA
+storage assign 35/0 3 volume 1/SSD-5/DATA
+storage assign 35/0 4 volume 1/SSD-5/DATA
+storage assign 35/0 5 volume 1/SSD-5/DATA
+storage assign 35/0 6 volume 1/SSD-5/DATA
+storage assign 35/0 7 volume 1/SSD-5/DATA
+
+storage assign 36/0 0 volume 2/SSD-4/OS
+storage assign 36/0 1 volume 2/SSD-4/DATA
+storage assign 36/0 2 volume 2/SSD-4/DATA
+storage assign 36/0 3 volume 2/SSD-4/DATA
+storage assign 36/0 4 volume 2/SSD-4/DATA
+storage assign 36/0 5 volume 2/SSD-4/DATA
+storage assign 36/0 6 volume 2/SSD-4/DATA
+storage assign 36/0 7 volume 2/SSD-4/DATA
+
+storage assign 37/0 0 volume 2/SSD-5/OS
+storage assign 37/0 1 volume 2/SSD-5/DATA
+storage assign 37/0 2 volume 2/SSD-5/DATA
+storage assign 37/0 3 volume 2/SSD-5/DATA
+storage assign 37/0 4 volume 2/SSD-5/DATA
+storage assign 37/0 5 volume 2/SSD-5/DATA
+storage assign 37/0 6 volume 2/SSD-5/DATA
+storage assign 37/0 7 volume 2/SSD-5/DATA
+
+storage assign 38/0 0 volume 3/SSD-4/OS
+storage assign 38/0 1 volume 3/SSD-4/DATA
+storage assign 38/0 2 volume 3/SSD-4/DATA
+storage assign 38/0 3 volume 3/SSD-4/DATA
+storage assign 38/0 4 volume 3/SSD-4/DATA
+storage assign 38/0 5 volume 3/SSD-4/DATA
+storage assign 38/0 6 volume 3/SSD-4/DATA
+storage assign 38/0 7 volume 3/SSD-4/DATA
+
+storage assign 39/0 0 volume 3/SSD-5/OS
+storage assign 39/0 1 volume 3/SSD-5/DATA
+storage assign 39/0 2 volume 3/SSD-5/DATA
+storage assign 39/0 3 volume 3/SSD-5/DATA
+storage assign 39/0 4 volume 3/SSD-5/DATA
+storage assign 39/0 5 volume 3/SSD-5/DATA
+storage assign 39/0 6 volume 3/SSD-5/DATA
+storage assign 39/0 7 volume 3/SSD-5/DATA
+
+storage assign 40/0 0 volume 4/SSD-4/OS
+storage assign 40/0 1 volume 4/SSD-4/DATA
+storage assign 40/0 2 volume 4/SSD-4/DATA
+storage assign 40/0 3 volume 4/SSD-4/DATA
+storage assign 40/0 4 volume 4/SSD-4/DATA
+storage assign 40/0 5 volume 4/SSD-4/DATA
+storage assign 40/0 6 volume 4/SSD-4/DATA
+storage assign 40/0 7 volume 4/SSD-4/DATA
+
+storage assign 41/0 0 volume 4/SSD-5/OS
+storage assign 41/0 1 volume 4/SSD-5/DATA
+storage assign 41/0 2 volume 4/SSD-5/DATA
+storage assign 41/0 3 volume 4/SSD-5/DATA
+storage assign 41/0 4 volume 4/SSD-5/DATA
+storage assign 41/0 5 volume 4/SSD-5/DATA
+storage assign 41/0 6 volume 4/SSD-5/DATA
+storage assign 41/0 7 volume 4/SSD-5/DATA
+
+storage assign 42/0 0 volume 5/SSD-4/OS
+storage assign 42/0 1 volume 5/SSD-4/DATA
+storage assign 42/0 2 volume 5/SSD-4/DATA
+storage assign 42/0 3 volume 5/SSD-4/DATA
+storage assign 42/0 4 volume 5/SSD-4/DATA
+storage assign 42/0 5 volume 5/SSD-4/DATA
+storage assign 42/0 6 volume 5/SSD-4/DATA
+storage assign 42/0 7 volume 5/SSD-4/DATA
+
+storage assign 43/0 0 volume 5/SSD-5/OS
+storage assign 43/0 1 volume 5/SSD-5/DATA
+storage assign 43/0 2 volume 5/SSD-5/DATA
+storage assign 43/0 3 volume 5/SSD-5/DATA
+storage assign 43/0 4 volume 5/SSD-5/DATA
+storage assign 43/0 5 volume 5/SSD-5/DATA
+storage assign 43/0 6 volume 5/SSD-5/DATA
+storage assign 43/0 7 volume 5/SSD-5/DATA
+
+storage assign 44/0 0 volume 6/SSD-4/OS
+storage assign 44/0 1 volume 6/SSD-4/DATA
+storage assign 44/0 2 volume 6/SSD-4/DATA
+storage assign 44/0 3 volume 6/SSD-4/DATA
+storage assign 44/0 4 volume 6/SSD-4/DATA
+storage assign 44/0 5 volume 6/SSD-4/DATA
+storage assign 44/0 6 volume 6/SSD-4/DATA
+storage assign 44/0 7 volume 6/SSD-4/DATA
+
+storage assign 45/0 0 volume 6/SSD-5/OS
+storage assign 45/0 1 volume 6/SSD-5/DATA
+storage assign 45/0 2 volume 6/SSD-5/DATA
+storage assign 45/0 3 volume 6/SSD-5/DATA
+storage assign 45/0 4 volume 6/SSD-5/DATA
+storage assign 45/0 5 volume 6/SSD-5/DATA
+storage assign 45/0 6 volume 6/SSD-5/DATA
+storage assign 45/0 7 volume 6/SSD-5/DATA
+
+storage assign 46/0 0 volume 7/SSD-4/OS
+storage assign 46/0 1 volume 7/SSD-4/DATA
+storage assign 46/0 2 volume 7/SSD-4/DATA
+storage assign 46/0 3 volume 7/SSD-4/DATA
+storage assign 46/0 4 volume 7/SSD-4/DATA
+storage assign 46/0 5 volume 7/SSD-4/DATA
+storage assign 46/0 6 volume 7/SSD-4/DATA
+storage assign 46/0 7 volume 7/SSD-4/DATA
+
+storage assign 47/0 0 volume 7/SSD-5/OS
+storage assign 47/0 1 volume 7/SSD-5/DATA
+storage assign 47/0 2 volume 7/SSD-5/DATA
+storage assign 47/0 3 volume 7/SSD-5/DATA
+storage assign 47/0 4 volume 7/SSD-5/DATA
+storage assign 47/0 5 volume 7/SSD-5/DATA
+storage assign 47/0 6 volume 7/SSD-5/DATA
+storage assign 47/0 7 volume 7/SSD-5/DATA
+
+storage assign 48/0 0 volume 0/SSD-6/OS
+storage assign 48/0 1 volume 0/SSD-6/DATA
+storage assign 48/0 2 volume 0/SSD-6/DATA
+storage assign 48/0 3 volume 0/SSD-6/DATA
+storage assign 48/0 4 volume 0/SSD-6/DATA
+storage assign 48/0 5 volume 0/SSD-6/DATA
+storage assign 48/0 6 volume 0/SSD-6/DATA
+storage assign 48/0 7 volume 0/SSD-6/DATA
+
+storage assign 49/0 0 volume 0/SSD-7/OS
+storage assign 49/0 1 volume 0/SSD-7/DATA
+storage assign 49/0 2 volume 0/SSD-7/DATA
+storage assign 49/0 3 volume 0/SSD-7/DATA
+storage assign 49/0 4 volume 0/SSD-7/DATA
+storage assign 49/0 5 volume 0/SSD-7/DATA
+storage assign 49/0 6 volume 0/SSD-7/DATA
+storage assign 49/0 7 volume 0/SSD-7/DATA
+
+storage assign 50/0 0 volume 1/SSD-6/OS
+storage assign 50/0 1 volume 1/SSD-6/DATA
+storage assign 50/0 2 volume 1/SSD-6/DATA
+storage assign 50/0 3 volume 1/SSD-6/DATA
+storage assign 50/0 4 volume 1/SSD-6/DATA
+storage assign 50/0 5 volume 1/SSD-6/DATA
+storage assign 50/0 6 volume 1/SSD-6/DATA
+storage assign 50/0 7 volume 1/SSD-6/DATA
+
+storage assign 51/0 0 volume 1/SSD-7/OS
+storage assign 51/0 1 volume 1/SSD-7/DATA
+storage assign 51/0 2 volume 1/SSD-7/DATA
+storage assign 51/0 3 volume 1/SSD-7/DATA
+storage assign 51/0 4 volume 1/SSD-7/DATA
+storage assign 51/0 5 volume 1/SSD-7/DATA
+storage assign 51/0 6 volume 1/SSD-7/DATA
+storage assign 51/0 7 volume 1/SSD-7/DATA
+
+storage assign 52/0 0 volume 2/SSD-6/OS
+storage assign 52/0 1 volume 2/SSD-6/DATA
+storage assign 52/0 2 volume 2/SSD-6/DATA
+storage assign 52/0 3 volume 2/SSD-6/DATA
+storage assign 52/0 4 volume 2/SSD-6/DATA
+storage assign 52/0 5 volume 2/SSD-6/DATA
+storage assign 52/0 6 volume 2/SSD-6/DATA
+storage assign 52/0 7 volume 2/SSD-6/DATA
+
+storage assign 53/0 0 volume 2/SSD-7/OS
+storage assign 53/0 1 volume 2/SSD-7/DATA
+storage assign 53/0 2 volume 2/SSD-7/DATA
+storage assign 53/0 3 volume 2/SSD-7/DATA
+storage assign 53/0 4 volume 2/SSD-7/DATA
+storage assign 53/0 5 volume 2/SSD-7/DATA
+storage assign 53/0 6 volume 2/SSD-7/DATA
+storage assign 53/0 7 volume 2/SSD-7/DATA
+
+storage assign 54/0 0 volume 3/SSD-6/OS
+storage assign 54/0 1 volume 3/SSD-6/DATA
+storage assign 54/0 2 volume 3/SSD-6/DATA
+storage assign 54/0 3 volume 3/SSD-6/DATA
+storage assign 54/0 4 volume 3/SSD-6/DATA
+storage assign 54/0 5 volume 3/SSD-6/DATA
+storage assign 54/0 6 volume 3/SSD-6/DATA
+storage assign 54/0 7 volume 3/SSD-6/DATA
+
+storage assign 55/0 0 volume 3/SSD-7/OS
+storage assign 55/0 1 volume 3/SSD-7/DATA
+storage assign 55/0 2 volume 3/SSD-7/DATA
+storage assign 55/0 3 volume 3/SSD-7/DATA
+storage assign 55/0 4 volume 3/SSD-7/DATA
+storage assign 55/0 5 volume 3/SSD-7/DATA
+storage assign 55/0 6 volume 3/SSD-7/DATA
+storage assign 55/0 7 volume 3/SSD-7/DATA
+
+storage assign 56/0 0 volume 4/SSD-6/OS
+storage assign 56/0 1 volume 4/SSD-6/DATA
+storage assign 56/0 2 volume 4/SSD-6/DATA
+storage assign 56/0 3 volume 4/SSD-6/DATA
+storage assign 56/0 4 volume 4/SSD-6/DATA
+storage assign 56/0 5 volume 4/SSD-6/DATA
+storage assign 56/0 6 volume 4/SSD-6/DATA
+storage assign 56/0 7 volume 4/SSD-6/DATA
+
+storage assign 57/0 0 volume 4/SSD-7/OS
+storage assign 57/0 1 volume 4/SSD-7/DATA
+storage assign 57/0 2 volume 4/SSD-7/DATA
+storage assign 57/0 3 volume 4/SSD-7/DATA
+storage assign 57/0 4 volume 4/SSD-7/DATA
+storage assign 57/0 5 volume 4/SSD-7/DATA
+storage assign 57/0 6 volume 4/SSD-7/DATA
+storage assign 57/0 7 volume 4/SSD-7/DATA
+
+storage assign 58/0 0 volume 5/SSD-6/OS
+storage assign 58/0 1 volume 5/SSD-6/DATA
+storage assign 58/0 2 volume 5/SSD-6/DATA
+storage assign 58/0 3 volume 5/SSD-6/DATA
+storage assign 58/0 4 volume 5/SSD-6/DATA
+storage assign 58/0 5 volume 5/SSD-6/DATA
+storage assign 58/0 6 volume 5/SSD-6/DATA
+storage assign 58/0 7 volume 5/SSD-6/DATA
+
+storage assign 59/0 0 volume 5/SSD-7/OS
+storage assign 59/0 1 volume 5/SSD-7/DATA
+storage assign 59/0 2 volume 5/SSD-7/DATA
+storage assign 59/0 3 volume 5/SSD-7/DATA
+storage assign 59/0 4 volume 5/SSD-7/DATA
+storage assign 59/0 5 volume 5/SSD-7/DATA
+storage assign 59/0 6 volume 5/SSD-7/DATA
+storage assign 59/0 7 volume 5/SSD-7/DATA
+
+storage assign 60/0 0 volume 6/SSD-6/OS
+storage assign 60/0 1 volume 6/SSD-6/DATA
+storage assign 60/0 2 volume 6/SSD-6/DATA
+storage assign 60/0 3 volume 6/SSD-6/DATA
+storage assign 60/0 4 volume 6/SSD-6/DATA
+storage assign 60/0 5 volume 6/SSD-6/DATA
+storage assign 60/0 6 volume 6/SSD-6/DATA
+storage assign 60/0 7 volume 6/SSD-6/DATA
+
+storage assign 61/0 0 volume 6/SSD-7/OS
+storage assign 61/0 1 volume 6/SSD-7/DATA
+storage assign 61/0 2 volume 6/SSD-7/DATA
+storage assign 61/0 3 volume 6/SSD-7/DATA
+storage assign 61/0 4 volume 6/SSD-7/DATA
+storage assign 61/0 5 volume 6/SSD-7/DATA
+storage assign 61/0 6 volume 6/SSD-7/DATA
+storage assign 61/0 7 volume 6/SSD-7/DATA
+
+storage assign 62/0 0 volume 7/SSD-6/OS
+storage assign 62/0 1 volume 7/SSD-6/DATA
+storage assign 62/0 2 volume 7/SSD-6/DATA
+storage assign 62/0 3 volume 7/SSD-6/DATA
+storage assign 62/0 4 volume 7/SSD-6/DATA
+storage assign 62/0 5 volume 7/SSD-6/DATA
+storage assign 62/0 6 volume 7/SSD-6/DATA
+storage assign 62/0 7 volume 7/SSD-6/DATA
+
+storage assign 63/0 0 volume 7/SSD-7/OS
+storage assign 63/0 1 volume 7/SSD-7/DATA
+storage assign 63/0 2 volume 7/SSD-7/DATA
+storage assign 63/0 3 volume 7/SSD-7/DATA
+storage assign 63/0 4 volume 7/SSD-7/DATA
+storage assign 63/0 5 volume 7/SSD-7/DATA
+storage assign 63/0 6 volume 7/SSD-7/DATA
+storage assign 63/0 7 volume 7/SSD-7/DATA

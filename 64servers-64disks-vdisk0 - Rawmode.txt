@@ -1,0 +1,85 @@
+enable
+config t
+storage assign-clear all all
+exit
+storage clear slot all <-- you will have to answer yes
+storage set mgmt-mode disk slot 0 no-confirm
+storage set mgmt-mode disk slot 1 no-confirm
+storage set mgmt-mode disk slot 2 no-confirm
+storage set mgmt-mode disk slot 3 no-confirm
+storage set mgmt-mode disk slot 4 no-confirm
+storage set mgmt-mode disk slot 5 no-confirm
+storage set mgmt-mode disk slot 6 no-confirm
+storage set mgmt-mode disk slot 7 no-confirm
+
+config t
+storage assign 0/0 0 disk 0/0
+storage assign 1/0 0 disk 0/1
+storage assign 2/0 0 disk 1/0
+storage assign 3/0 0 disk 1/1
+storage assign 4/0 0 disk 2/0
+storage assign 5/0 0 disk 2/1
+storage assign 6/0 0 disk 3/0
+storage assign 7/0 0 disk 3/1
+storage assign 8/0 0 disk 4/0
+storage assign 9/0 0 disk 4/1
+storage assign 10/0 0 disk 5/0
+storage assign 11/0 0 disk 5/1
+storage assign 12/0 0 disk 6/0
+storage assign 13/0 0 disk 6/1
+storage assign 14/0 0 disk 7/0
+storage assign 15/0 0 disk 7/1
+storage assign 16/0 0 disk 0/2
+storage assign 17/0 0 disk 0/3
+storage assign 18/0 0 disk 1/2
+storage assign 19/0 0 disk 1/3
+storage assign 20/0 0 disk 2/2
+storage assign 21/0 0 disk 2/3
+storage assign 22/0 0 disk 3/2
+storage assign 23/0 0 disk 3/3
+storage assign 24/0 0 disk 4/2
+storage assign 25/0 0 disk 4/3
+storage assign 26/0 0 disk 5/2
+storage assign 27/0 0 disk 5/3
+storage assign 28/0 0 disk 6/2
+storage assign 29/0 0 disk 6/3
+storage assign 30/0 0 disk 7/2
+storage assign 31/0 0 disk 7/3
+storage assign 32/0 0 disk 0/4
+storage assign 33/0 0 disk 0/5
+storage assign 34/0 0 disk 1/4
+storage assign 35/0 0 disk 1/5
+storage assign 36/0 0 disk 2/4
+storage assign 37/0 0 disk 2/5
+storage assign 38/0 0 disk 3/4
+storage assign 39/0 0 disk 3/5
+storage assign 40/0 0 disk 4/4
+storage assign 41/0 0 disk 4/5
+storage assign 42/0 0 disk 5/4
+storage assign 43/0 0 disk 5/5
+storage assign 44/0 0 disk 6/4
+storage assign 45/0 0 disk 6/5
+storage assign 46/0 0 disk 7/4
+storage assign 47/0 0 disk 7/4
+storage assign 48/0 0 disk 0/6
+storage assign 49/0 0 disk 0/7
+storage assign 50/0 0 disk 1/6
+storage assign 51/0 0 disk 1/7
+storage assign 52/0 0 disk 2/6
+storage assign 53/0 0 disk 2/7
+storage assign 54/0 0 disk 3/6
+storage assign 55/0 0 disk 3/7
+storage assign 56/0 0 disk 4/6
+storage assign 57/0 0 disk 4/7
+storage assign 58/0 0 disk 5/6
+storage assign 59/0 0 disk 5/7
+storage assign 60/0 0 disk 6/6
+storage assign 61/0 0 disk 6/7
+storage assign 62/0 0 disk 7/6
+storage assign 63/0 0 disk 7/7
+server id 0/0-63/0
+bios boot-order hd0
+exit
+exit
+wr mem
+
