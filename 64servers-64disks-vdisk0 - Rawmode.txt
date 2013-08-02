@@ -60,7 +60,7 @@ storage assign 43/0 0 disk 5/5
 storage assign 44/0 0 disk 6/4
 storage assign 45/0 0 disk 6/5
 storage assign 46/0 0 disk 7/4
-storage assign 47/0 0 disk 7/4
+storage assign 47/0 0 disk 7/5
 storage assign 48/0 0 disk 0/6
 storage assign 49/0 0 disk 0/7
 storage assign 50/0 0 disk 1/6
