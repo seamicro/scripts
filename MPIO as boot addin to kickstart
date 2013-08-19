@@ -1,0 +1,29 @@
+#Need these 2 rpm's, yum install will pull down if repo's working
+#device-mapper-multipath-libs-0.4.9-56.el6.x86_64.rpm
+#device-mapper-multipath-0.4.9-56.el6.x86_64.rpm
+
+yum install device-mapper-multipath.x86_64 -y
+
+#create multipath.conf file in /etc
+
+defaults {
+        user_friendly_names yes
+        rr_min_io 1
+        no_path_retry queue
+        rr_weight uniform
+        path_grouping_policy group_by_serial=1
+        getuid_callout "/lib/udev/scsi_id --whitelisted --device=/dev/%n page=0x80 --replace-whitespace"
+}
+
+blacklist  {
+
+        #devnode "sda$
+
+}
+
+
+mpathconf --enable
+service multipathd start
+dracut --force --add multipath --include /etc/multipath /etc/multipath
+# Check /etc/fstab and /boot/grub/grub.conf... Make sure root is booted using UUID and not /dev name
+init 6
