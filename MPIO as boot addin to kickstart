@@ -17,7 +17,7 @@ defaults {
 
 blacklist  {
 
-        #devnode "sda$
+        #devnode "sda$"
 
 }
 
