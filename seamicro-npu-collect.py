@@ -1,10 +1,9 @@
 #!/usr/bin/python
 
-import getopt, pprint, re, sys
+import getopt
+import re
+import sys
 import paramiko
-import commands
-import time
-
 
 latancy = { }
 nic_number = ''
