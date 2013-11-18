@@ -1,0 +1,1 @@
+from seamicro_api import SeaMicroAPI, SeaMicroAPIError
