@@ -1,8 +1,8 @@
 import requests
 import json
-import types
-import pprint
 import logging
+
+from enum import Enum
 
 class SeaMicroAPIError(Exception):
     def __init__(self, value):
@@ -12,7 +12,10 @@ class SeaMicroAPIError(Exception):
         return repr(self.value)
 
 LOGGER = logging.getLogger('SeaMicroAPI')
+LOGGER.addHandler(logging.StreamHandler())
+LOGGER.setLevel(logging.INFO)
 
+SERVER_POWER_STATES = Enum('on', 'off', 'reset')
 
 class SeaMicroAPI:
     RESPONSE_CODES = {
@@ -56,6 +59,7 @@ class SeaMicroAPI:
                 http_status_code = response.status_code
                 raise SeaMicroAPIError('Got HTTP response code %d - %s for %s' % (http_status_code, self.RESPONSE_CODES.get(http_status_code, 'Unknown!'), url))
         
+        LOGGER.debug(response.text)
         json_data = json.loads(response.text)
 
         if not json_data:
@@ -74,7 +78,7 @@ class SeaMicroAPI:
     def send_get_legacy(self, location, params):
         params.update({ 'token': self.token })
         url = self.assemble_url_legacy(location, params)
-        LOGGER.info('URL: %s' % url)
+        LOGGER.debug('URL: %s' % url)
 
         r = requests.get(url, verify=self.verify_ssl)
         return self.decode_response(r)
@@ -86,7 +90,7 @@ class SeaMicroAPI:
         #params.update({ 'token': self.token })
         
         url = self.assemble_url_legacy(location, params)
-        LOGGER.info('URL: %s' % url)
+        LOGGER.debug('URL: %s' % url)
         headers = {'content-type': 'text/json'}
 
         r = requests.put(url, headers=headers, verify=self.verify_ssl)
@@ -101,6 +105,7 @@ class SeaMicroAPI:
     def logout(self):
         location = "logout"
         decoded_json_response = self.send_get_legacy(location, params={ })
+        return decoded_json_response['result']
 
     def cards(self):
         location = "cards"
@@ -126,13 +131,54 @@ class SeaMicroAPI:
 
         return decoded_json_response['result']
 
-    # below grabs detailed server info based on server's name, e.g. "17/0"
+
+    def get_server_by_name(self, server_name):
+    	"""Wrapper for camel case serverByName.
+    	"""
+    	return self.serverByName(server_name)
+
+
     def serverByName(self, serverName):
+    	"""
+    	Get detailed server info based on server name. For example, "17/0".
+    	"""
         serverIndex = self.indexForServer(serverName)    
         location = "servers/%s" % (serverIndex)
 
         return self.send_get_legacy(location, params={ })['result']
     
+
+    # wrapping the below commands to be consistent with the function names created
+    # previously, and also to allow the user not to worry about magic strings like
+    # "Power-On"
+
+    def server_power_on(self, server_name, using_pxe=False):
+    	"""Power-on - wrapper around serverPowerByName
+    	"""
+    	
+    	return self.serverPowerByName(server_name, 'Power-On', doPxe=using_pxe)
+
+
+    def server_power_off(self, server_name, force=False):
+    	"""Power-off - wrapper around serverPowerByName"""
+
+    	return self.serverPowerByName(server_name, 'Power-Off', force=force)
+
+
+    def server_reset(self, server_name, using_pxe=False):
+    	"""Reset - wrapper around serverPowerByName"""
+
+    	return self.serverPowerByName(server_name, 'Reset', doPxe=using_pxe)
+
+
+    def index_for_server(self, server_name):
+    	"""
+    	Wrapper for camel case
+    	"""
+    	return self.indexForServer(server_name)
+
+
+
     # below issues power on/off/reset command
     # newStatus must be ['Power-On', 'Power-Off', 'Reset']
     # doPxe boolean to accompany Power-On & Reset
@@ -157,12 +203,17 @@ class SeaMicroAPI:
         else:
             return False
         
-        self.send_put_legacy(location, params=params)['result']
+        result = self.send_put_legacy(location, params=params)
+        print result        
         return True
-    
-    # because API v0.9 uses arbitrary indexing, this function converts a server id
-    # to an index that can be used for detailed outputs & commands
+
+
     def indexForServer(self, serverName):
+    	"""
+    	API v0.9 uses arbitrary indexing. This function converts a server id
+    	to an index that can be used for detailed outputs & commands.
+    	"""
+
         location = "servers"
         serverDict = self.send_get_legacy(location, params={ })['result']['serverId']
         
@@ -183,24 +234,5 @@ class SeaMicroAPI:
         location = "system/techsupport"
         params = { 'scope': 'scope=brief' }
 
-        decoded_json_response = self.send_get(location, params=params)
+        decoded_json_response = self.send_get_legacy(location, params=params)
         return decoded_json_response['result']
-
-# Example of usage
-def main():
-    sm = SeaMicroAPI(hostname="10.216.142.87", use_ssl=False, verify_ssl=False)
-    sm.login(username='admin', password='seamicro')
-    
-    #pprint.pprint(sm.servers_all())
-    #pprint.pprint(sm.logs())
-    #pprint.pprint(sm.serverByName("60/0"))
-    #pprint.pprint(sm.serverPowerByName("60/0",newStatus="Power-On", doPxe=True))
-    #pprint.pprint(sm.serverPowerByName("60/0",newStatus="Reset", doPxe=False))
-    #pprint.pprint(sm.serverPowerByName("60/0",newStatus="Power-Off", force=True))
-
-
-    sm.logout()
-
-if __name__ == '__main__':
-        main()
-
