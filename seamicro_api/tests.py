@@ -5,16 +5,19 @@ import requests
 from seamicro_api import SeaMicroAPI, SeaMicroAPIError
 
 SERVER_TO_POWER_TEST = "3/0"
+CHASSIS_HOSTNAME = "192.168.142.10"
+CHASSIS_USERNAME = "admin"
+CHASSIS_PASSWORD = "seamicro"
 
 class SeaMicroAPITestCase(unittest.TestCase):
 	def setUp(self):
-		self.api = SeaMicroAPI(hostname="192.168.142.10", use_ssl=True, verify_ssl=False)
+		self.api = SeaMicroAPI(hostname=CHASSIS_HOSTNAME, use_ssl=True, verify_ssl=False)
 
 	def tearDown(self):
 		self.api.logout()
 
 	def do_good_login(self):
-		self.api.login(username='admin', password='seamicro')
+		self.api.login(username=CHASSIS_USERNAME, password=CHASSIS_PASSWORD)
 
 	def check_download_file(self, url, content_type='application/x-tgz'):
 		r = requests.get(url)

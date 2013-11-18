@@ -58,15 +58,19 @@ class SeaMicroAPI:
         if response.status_code not in (200, 202, 304):
                 http_status_code = response.status_code
                 raise SeaMicroAPIError('Got HTTP response code %d - %s for %s' % (http_status_code, self.RESPONSE_CODES.get(http_status_code, 'Unknown!'), url))
-        
-        LOGGER.debug(response.text)
+
+        LOGGER.debug(response.text)        
         json_data = json.loads(response.text)
 
         if not json_data:
             raise SeaMicroAPIError('No JSON Data Found from %s: just got %s' % (url, response.text))
+
         json_rpc_code = int(json_data['error']['code'])
+
         if json_rpc_code not in (200, 202, 304):
                 raise SeaMicroAPIError('Got JSON RPC error code %d: %s for %s' % (json_rpc_code, self.RESPONSE_CODES.get(json_rpc_code, 'Unknown!'), url))
+
+        LOGGER.debug(json_data)
         return json_data
 
     def send_get(self, location, params):
@@ -78,7 +82,7 @@ class SeaMicroAPI:
     def send_get_legacy(self, location, params):
         params.update({ 'token': self.token })
         url = self.assemble_url_legacy(location, params)
-        LOGGER.debug('URL: %s' % url)
+        LOGGER.debug('GET: %s' % url)
 
         r = requests.get(url, verify=self.verify_ssl)
         return self.decode_response(r)
@@ -90,7 +94,7 @@ class SeaMicroAPI:
         #params.update({ 'token': self.token })
         
         url = self.assemble_url_legacy(location, params)
-        LOGGER.debug('URL: %s' % url)
+        LOGGER.debug('PUT: %s' % url)
         headers = {'content-type': 'text/json'}
 
         r = requests.put(url, headers=headers, verify=self.verify_ssl)
@@ -178,14 +182,17 @@ class SeaMicroAPI:
     	return self.indexForServer(server_name)
 
 
-
-    # below issues power on/off/reset command
-    # newStatus must be ['Power-On', 'Power-Off', 'Reset']
-    # doPxe boolean to accompany Power-On & Reset
-    # force boolean to accompany Power-Off
-    # arguments are order-dependant at the system,
-    # so we're manually creating post string here
+    # XXX: arguments are order-dependant at the system,
+    # XXX: so we're manually creating post string here
     def serverPowerByName(self, serverName, newStatus, doPxe=False, force=False):
+    	"""Issue power on, power off, reset commands.
+    		newStatus must be one of "Power-On", "Power-Off", or "Reset". 
+    		The keyword argument doPxe may be True or False, and governs whether a power-on or reset
+    		action will include a PXE attempt.
+    		The keyword argument force may be True or False, and governs whether a power-off will
+    		use ACPI to power down gracefully (force=False) or force the server off un-gracefully
+    		(force=True).
+    	"""
         serverIndex = self.indexForServer(serverName)
         location = "servers/%s" % (serverIndex)
         
@@ -204,7 +211,7 @@ class SeaMicroAPI:
             return False
         
         result = self.send_put_legacy(location, params=params)
-        print result        
+        LOGGER.debug(result)
         return True
 
 
