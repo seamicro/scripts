@@ -116,7 +116,7 @@ class SeaMicroAPI:
 		decoded_json_response = self.send_request(location, params=params)
 		return decoded_json_response['result']
 
-
+# Example of usage
 def main():
 	sm = SeaMicroAPI(hostname="192.168.142.10", use_ssl=True, verify_ssl=False)
 	sm.login(username='admin', password='seamicro')
