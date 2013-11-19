@@ -1,5 +1,6 @@
 import unittest
 import sys
+import pprint
 import time
 import requests
 from seamicro_api import SeaMicroAPI, SeaMicroAPIError
@@ -30,14 +31,19 @@ class TestCardsAll(SeaMicroAPITestCase):
 		self.do_good_login()
 		cards_all = self.api.cards_all()
 
-		print >>sys.stderr, cards_all
+		pprint.pprint(cards_all, stream=sys.stderr)
+
 
 class TestServersAll(SeaMicroAPITestCase):
 	def runTest(self):
 		self.do_good_login()
 		servers = self.api.servers_all()
 
-		print >>sys.stderr, servers
+#		pprint.pprint(servers, stream=sys.stderr)
+		def func(x,y):
+			return int(x['serverId'].split('/')[0]) - int(y['serverId'].split('/')[0])
+
+		pprint.pprint([ (s['serverId'], s['serverMacAddr']) for s in sorted(servers.values(), cmp=func)  if s['serverNIC'] == '0' ], stream=sys.stderr)
 
 
 class TestSeaMicroAPIAuthentication(SeaMicroAPITestCase):

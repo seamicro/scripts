@@ -30,7 +30,7 @@ class SeaMicroAPI:
         501: 'Internal Server Error (not implemented)'
     }
 
-    def __init__(self, hostname='seamicro', use_ssl=True, verify_ssl=True, api_version='v0.9'):
+    def __init__(self, hostname='seamicro', use_ssl=True, verify_ssl=True, api_version='v0.9', debug=False):
         self.hostname = hostname
         self.protocol = "http"
         self.api_version = api_version
@@ -40,6 +40,8 @@ class SeaMicroAPI:
                 self.protocol = "https"
 
         self.base_uri = "%s://%s/%s" % (self.protocol, self.hostname, self.api_version)
+        if debug:
+            LOGGER.setLevel(logging.DEBUG)
 
     # the v0.9 resources, except for techsupport, do not accept key/value pairs, 
     # so the below function builds them manually
@@ -57,7 +59,8 @@ class SeaMicroAPI:
         url = response.url
         if response.status_code not in (200, 202, 304):
                 http_status_code = response.status_code
-                raise SeaMicroAPIError('Got HTTP response code %d - %s for %s' % (http_status_code, self.RESPONSE_CODES.get(http_status_code, 'Unknown!'), url))
+                raise SeaMicroAPIError('Got HTTP response code %d - %s for %s' %
+                    (http_status_code, self.RESPONSE_CODES.get(http_status_code, 'Unknown!'), url))
 
         LOGGER.debug(response.text)        
         json_data = json.loads(response.text)
@@ -68,7 +71,8 @@ class SeaMicroAPI:
         json_rpc_code = int(json_data['error']['code'])
 
         if json_rpc_code not in (200, 202, 304):
-                raise SeaMicroAPIError('Got JSON RPC error code %d: %s for %s' % (json_rpc_code, self.RESPONSE_CODES.get(json_rpc_code, 'Unknown!'), url))
+                raise SeaMicroAPIError('Got JSON RPC error code %d: %s for %s' %
+                    (json_rpc_code, self.RESPONSE_CODES.get(json_rpc_code, 'Unknown!'), url))
 
         LOGGER.debug(json_data)
         return json_data
