@@ -25,6 +25,21 @@ class SeaMicroAPITestCase(unittest.TestCase):
 		self.assertEqual(r.headers['content-type'], content_type)
 
 
+class TestCardsAll(SeaMicroAPITestCase):
+	def runTest(self):
+		self.do_good_login()
+		cards_all = self.api.cards_all()
+
+		print >>sys.stderr, cards_all
+
+class TestServersAll(SeaMicroAPITestCase):
+	def runTest(self):
+		self.do_good_login()
+		servers = self.api.servers_all()
+
+		print >>sys.stderr, servers
+
+
 class TestSeaMicroAPIAuthentication(SeaMicroAPITestCase):
 	def runTest(self):
 		self.do_good_login()
