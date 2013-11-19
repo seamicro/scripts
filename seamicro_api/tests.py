@@ -39,11 +39,10 @@ class TestServersAll(SeaMicroAPITestCase):
 		self.do_good_login()
 		servers = self.api.servers_all()
 
-#		pprint.pprint(servers, stream=sys.stderr)
 		def func(x,y):
 			return int(x['serverId'].split('/')[0]) - int(y['serverId'].split('/')[0])
 
-		pprint.pprint([ (s['serverId'], s['serverMacAddr']) for s in sorted(servers.values(), cmp=func)  if s['serverNIC'] == '0' ], stream=sys.stderr)
+		pprint.pprint([(s['serverId'], s['serverMacAddr']) for s in sorted(servers.values(), cmp=func)  if s['serverNIC'] == '0'], stream=sys.stderr)
 
 
 class TestSeaMicroAPIAuthentication(SeaMicroAPITestCase):
